@@ -1,15 +1,16 @@
   nav {
-    background-image: linear-gradient(205deg, #9e6d27 0, #955f26 16.67%, #895124 33.33%, #794221 50%, #69341e 66.67%, #5a281a 83.33%, #4c1f18 100%);
     padding: 0px 10px;
+    border-bottom: 5px solid  ;
   }
 .menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 label {
   font-size: 20px;
-  color: white;
+  color: black;
   font-weight: bold;
 }
 .menu-list{
@@ -18,23 +19,24 @@ label {
   margin-right: 30px;
 }
 .menu-list li{
-  margin: 0 5px;
+  margin: 5px 5px;
+  vertical-align: center;
 }
 .menu-list li a {
   padding: 7px 13px;
   text-decoration: none;
   font-size: 17px;
   display: block;
-  color: white;
+  color: black;
 }
 .menu-list li:hover{
-  background-color: #5a281a;
-  transition: 0.4s;
+  border-bottom: 2px solid #5a281a;
+  transition: 0.8s;
 }
 .boton {
-  margin-right: 25px;
+  margin-right: 10px;
   font-size: 25px;
-  color: white;
+  color: black;
   cursor: pointer;
   display: none;
 }
@@ -55,6 +57,7 @@ ul.show {
   }
   .boton {
     display: inline-flex;
+
   }
   .menu-list {
     position: fixed;
