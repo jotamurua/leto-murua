@@ -5,7 +5,7 @@ import { ItemListContainer } from "./components/ItemListContainer/ItemListContai
 
 function App() {
   return <><NavBar />
-          <ItemListContainer text="¡PROXIMAMENTE!"/>
+          <ItemListContainer />
             </>;
 }
 
