@@ -5,24 +5,22 @@ import { customFetch } from "../utils/customFetch";
 import products from "../utils/products";
 import { ItemList } from "./ItemList/ItemList";
 
-export const ItemListContainer = (props) => {
+export const ItemListContainer = () => {
     const [items, setItems] = useState ([])
 
     useEffect( () => {
-        customFetch(3000, products)
+        customFetch(2000, products)
         .then(resultado => setItems(resultado))
     }, [items])
 
     
     return (
-        <div className="item-container">
+        <div className="grid">
             <section>
-                <article>
                     {
                         items?.length <= 0 ?  <h1>CARGANDO...</h1> : 
                         <ItemList products={items}/> 
                     }
-                </article>
             </section>
         </div>)
 }

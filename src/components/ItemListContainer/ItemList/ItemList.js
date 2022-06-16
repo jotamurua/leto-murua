@@ -5,10 +5,12 @@ import "./ItemList.css"
 export const ItemList = ({products}) => {
  return (
      products.map(p => 
-        <div className="item-container"><Items
+        
+        <Items 
+            key={p.id}
             {...p}
         />
-        </div>
+
         )
  )
 }

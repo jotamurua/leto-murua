@@ -1,3 +1,22 @@
-div {
-    color: black;
+article {
+    border: 1px #DB3939 solid;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    font-family: 'Inter', sans-serif;
+}
+article img {
+    width: 25%;
+}
+article h1, p{
+    font-family: 'Inter', sans-serif;
+}
+article h1{
+    font-weight: bold;
+}
+article button{
+    margin: 5px;
+    
 }

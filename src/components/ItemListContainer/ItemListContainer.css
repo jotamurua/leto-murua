@@ -2,3 +2,8 @@ h1 {
     font-size: 15px;
     padding: 20px;
 }
+.grid section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1em;
+}
