@@ -65,7 +65,7 @@ ul.show {
     width: 100vw;
     height: calc(100% - 65px);
     background: #69341e;
-    top: -100vh;
+    top: -1000vh;
     text-align: center;
     transition: all .4s;
     
