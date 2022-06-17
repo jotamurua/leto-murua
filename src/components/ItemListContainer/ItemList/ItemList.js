@@ -4,11 +4,11 @@ import "./ItemList.css"
 
 export const ItemList = ({products}) => {
  return (
-     products.map(p => 
+     products.map(product => 
         
         <Items 
-            key={p.id}
-            {...p}
+            key={product.id}
+            {...product}
         />
 
         )

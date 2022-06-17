@@ -5,6 +5,7 @@ export const ItemCount = ({stock}) => {
 
 
     const [ count, setCount ] = useState(0);
+    
     function adding () {
         if (count < stock ) {
             setCount (count + 1 );
