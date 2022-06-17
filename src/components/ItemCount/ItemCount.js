@@ -2,7 +2,8 @@ import React from "react";
 import { useState } from "react";
 
 export const ItemCount = ({stock}) => {
-    
+
+
     const [ count, setCount ] = useState(0);
     function adding () {
         if (count < stock ) {
@@ -17,9 +18,9 @@ export const ItemCount = ({stock}) => {
     return (
         <div>
 
-            <button onClick={subs}> <ion-icon name="bag-remove" size="large"></ion-icon></button>
-            <span> {count} </span>
-            <button onClick={adding}><ion-icon name="bag-add" size="large"></ion-icon></button>
+            <button onClick={subs} disabled={count === 0} > <ion-icon name="bag-remove" size="large"></ion-icon></button>
+            <span> {count}  </span>
+            <button onClick={adding} disabled={count === stock}><ion-icon name="bag-add" size="large"></ion-icon></button>
         </div>
     )
 }

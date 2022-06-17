@@ -4,6 +4,7 @@ import { useState } from "react";
 import { customFetch } from "../utils/customFetch";
 import products from "../utils/products";
 import { ItemList } from "./ItemList/ItemList";
+import { SpinnerCircular } from 'spinners-react';
 
 export const ItemListContainer = () => {
     const [items, setItems] = useState ([])
@@ -18,7 +19,7 @@ export const ItemListContainer = () => {
         <div className="grid">
             <section>
                     {
-                        items?.length <= 0 ?  <h1>CARGANDO...</h1> : 
+                        items?.length <= 0 ?  <SpinnerCircular /> : 
                         <ItemList products={items}/> 
                     }
             </section>
