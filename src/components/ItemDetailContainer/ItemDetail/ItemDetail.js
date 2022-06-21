@@ -15,7 +15,7 @@ export const ItemDetail = ({ products}) => {
         <img src={product.img} alt="Foto del café" />
         <h1>{product.title}</h1>
         <p>${product.price}</p>
-        <button>description</button>
+        <p>{product.description}</p>
         <ItemCount stock={product.stock} />
         <button >Añadir a la compra</button>
         <p>Stock disponible: {product.stock}</p>
