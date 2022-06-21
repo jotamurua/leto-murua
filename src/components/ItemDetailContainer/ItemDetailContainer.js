@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
-import "./ItemListContainer.css"
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
+import "./ItemDetailContainer.css";
 import products from "../utils/products";
-import { ItemList } from "./ItemList/ItemList";
 import { SpinnerCircular } from 'spinners-react';
+import { ItemDetail } from "./ItemDetail/ItemDetail";
 
-export const ItemListContainer = () => {
+
+
+
+export const ItemDetailContainer = () => {
     const [items, setItems] = useState ([])
     const [spinner, setSpinner] = useState(false)
 
@@ -29,15 +31,15 @@ export const ItemListContainer = () => {
         .catch (setSpinner(true))
           
         ;}, [items])
-        
-
     
     return (
+        
         <div className="grid">
             <section>
                     {
-                        items.length ? <ItemList products={items}/> : <SpinnerCircular />
+                        items.length? <ItemDetail products = {items} /> :  <SpinnerCircular /> 
                     }
             </section>
         </div>)
+
 }

@@ -24,7 +24,7 @@ const products = [
         img: 'https://img.freepik.com/vector-gratis/rama-cafe-frutas-flores-ilustracion-dibujada-mano_37827-1043.jpg?t=st=1655166563~exp=1655167163~hmac=a0886cb9ca9b698942b7e31788787d309f13724135c1d4c22b6ef09435931b1f&w=826'
     },
     {
-        id: 400,
+        id: 4,
         title: 'Product 4',
         description: `lorem`,
         price: 100,

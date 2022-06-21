@@ -4,7 +4,9 @@ import "./ItemList.css"
 
 export const ItemList = ({products}) => {
  return (
-     products.map(product => 
+     products
+
+     .map(product => 
         
         <Items 
             key={product.id}
