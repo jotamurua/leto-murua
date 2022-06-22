@@ -8,36 +8,39 @@ import { ItemDetail } from "./ItemDetail/ItemDetail";
 
 
 export const ItemDetailContainer = () => {
-    const [items, setItems] = useState ([])
-    const [spinner, setSpinner] = useState(false)
+    const [item, setItem] = useState ([])
+    const [spinner, setSpinner] = useState(true)
 
     useEffect( () => {
-        const getItems = () => {
+        const getItem = (id) => {
         return new Promise((resolve, reject) => {
           setTimeout (()=>{
             if(products.length > 0){
             resolve(products)} else {
-                reject (console.log("ERROR!!!!"))
+                reject (console.log("ERROR!"))
             }
           }, 2000);
           
 
         });
         
+        
       }
       
-      getItems()
-        .then ((items) => setItems(products))
-        .catch (setSpinner(true))
+      getItem()
+        .then ((res) => setItem(products.find (product => product.id === 2)))
+        .catch ((message)=>{console.log(message)})
+        .finally(() => setSpinner(false))
           
-        ;}, [items])
-    
-    return (
+        ;}, [])
         
+    return (
+      
         <div className="grid">
+          
             <section>
                     {
-                        items.length? <ItemDetail products = {items} /> :  <SpinnerCircular /> 
+                        spinner? <SpinnerCircular /> : <ItemDetail product = {item} /> 
                     }
             </section>
         </div>)

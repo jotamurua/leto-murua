@@ -7,7 +7,7 @@ import { SpinnerCircular } from 'spinners-react';
 
 export const ItemListContainer = () => {
     const [items, setItems] = useState ([])
-    const [spinner, setSpinner] = useState(false)
+    const [spinner, setSpinner] = useState(true)
 
     useEffect( () => {
         const getItems = () => {
@@ -25,8 +25,9 @@ export const ItemListContainer = () => {
       }
       
       getItems()
-        .then ((items) => setItems(products))
-        .catch (setSpinner(true))
+        .then ((res) => setItems(res))
+        .catch ((message)=>{console.log(message)})
+        .finally(() => setSpinner(false))
           
         ;}, [items])
         
@@ -36,7 +37,7 @@ export const ItemListContainer = () => {
         <div className="grid">
             <section>
                     {
-                        items.length ? <ItemList products={items}/> : <SpinnerCircular />
+                        spinner ? <SpinnerCircular /> : <ItemList products={items}/>
                     }
             </section>
         </div>)

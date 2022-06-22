@@ -4,9 +4,8 @@ import { ItemCount } from "../../ItemCount/ItemCount";
 
 
 
-export const ItemDetail = ({ products}) => {
-      const product =
-      products.find (product => product.id === 3)
+export const ItemDetail = ({ product}) => {
+
 
     return (
       
