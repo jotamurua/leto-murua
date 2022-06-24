@@ -8,9 +8,10 @@ article {
     font-family: 'Inter', sans-serif;
 }
 article img {
-    width: 25%;
+    width: 100%;
+    
 }
-article h1, p{
+article h1, p, button{
     font-family: 'Inter', sans-serif;
 }
 article h1{
@@ -18,5 +19,10 @@ article h1{
 }
 article button{
     margin: 5px;
-    
+    border: 0px;
+    background: none;
+}
+.buttons {
+    border: 1px black solid;
+    border-radius: 5px;
 }

@@ -4,10 +4,15 @@ import { useState } from "react";
 import products from "../utils/products";
 import { ItemList } from "./ItemList/ItemList";
 import { SpinnerCircular } from 'spinners-react';
+import { useParams } from "react-router-dom";
 
 export const ItemListContainer = () => {
-    const [items, setItems] = useState ([])
-    const [spinner, setSpinner] = useState(true)
+    const [items, setItems] = useState ([]);
+    const [spinner, setSpinner] = useState(true);
+    
+    
+    const {categoryid} = useParams();
+    
 
     useEffect( () => {
         const getItems = () => {
@@ -25,11 +30,11 @@ export const ItemListContainer = () => {
       }
       
       getItems()
-        .then ((res) => setItems(res))
+        .then ((res) => categoryid? setItems(products.filter((product)=> product.category === `${categoryid}`)) : setItems((products)))
         .catch ((message)=>{console.log(message)})
         .finally(() => setSpinner(false))
           
-        ;}, [items])
+        ;}, [categoryid])
         
 
     

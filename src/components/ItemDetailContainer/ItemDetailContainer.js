@@ -3,16 +3,21 @@ import "./ItemDetailContainer.css";
 import products from "../utils/products";
 import { SpinnerCircular } from 'spinners-react';
 import { ItemDetail } from "./ItemDetail/ItemDetail";
+import { useParams } from "react-router-dom";
 
 
 
 
 export const ItemDetailContainer = () => {
+ 
+    const {id} = useParams()
     const [item, setItem] = useState ([])
     const [spinner, setSpinner] = useState(true)
 
+    
+
     useEffect( () => {
-        const getItem = (id) => {
+        const getItem = () => {
         return new Promise((resolve, reject) => {
           setTimeout (()=>{
             if(products.length > 0){
@@ -28,11 +33,12 @@ export const ItemDetailContainer = () => {
       }
       
       getItem()
-        .then ((res) => setItem(products.find (product => product.id === 2)))
+        .then ((res) => setItem(products.find (product => product.id === `${id}`
+          )))
         .catch ((message)=>{console.log(message)})
         .finally(() => setSpinner(false))
           
-        ;}, [])
+        ;}, [id])
         
     return (
       
