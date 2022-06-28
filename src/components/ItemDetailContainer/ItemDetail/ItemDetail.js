@@ -10,7 +10,7 @@ export const ItemDetail = ({ product}) => {
     return (
       
       
-      <article key={product.id}>
+      <article>
         <img src={product.img} alt="Foto del café" />
         <h1>{product.title}</h1>
         <p>${product.price}</p>

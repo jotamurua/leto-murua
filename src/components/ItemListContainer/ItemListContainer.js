@@ -20,7 +20,7 @@ export const ItemListContainer = () => {
           setTimeout (()=>{
             if(products.length > 0){
             resolve(products)} else {
-                reject (console.log("ERROR!!!!"))
+                reject ("ERROR!!!!")
             }
           }, 2000);
           
@@ -31,7 +31,7 @@ export const ItemListContainer = () => {
       
       getItems()
         .then ((res) => categoryid? setItems(products.filter((product)=> product.category === `${categoryid}`)) : setItems((products)))
-        .catch ((message)=>{console.log(message)})
+        .catch ((err)=>{console.log(err)})
         .finally(() => setSpinner(false))
           
         ;}, [categoryid])
