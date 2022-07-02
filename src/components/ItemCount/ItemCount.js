@@ -22,7 +22,7 @@ export const ItemCount = ({stock, control}) => {
             <button onClick={subs} disabled={count === 0} > <ion-icon name="bag-remove" size="large"></ion-icon></button>
             <span> {count}  </span>
             <button onClick={adding} disabled={count === stock}><ion-icon name="bag-add" size="large"></ion-icon></button>
-            <button className="buttons" onClick={() => {control(false)}}>Añadir a la compra</button>
+            <button className="buttons" onClick={() => {control({count})}}>Añadir a la compra</button>
         </div>
     )
 }
