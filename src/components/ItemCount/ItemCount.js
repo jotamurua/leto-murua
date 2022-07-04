@@ -1,11 +1,10 @@
 import React from "react";
 import { useState } from "react";
 
-export const ItemCount = ({stock, control}) => {
+export const ItemCount = ({initial, stock, control}) => {
 
 
-    const [ count, setCount ] = useState(0);
-   
+    const [ count, setCount ] = useState(initial);
     function adding () {
         if (count < stock ) {
             setCount ((prevCount) => prevCount + 1 );
@@ -19,10 +18,10 @@ export const ItemCount = ({stock, control}) => {
     return (
         <div>
 
-            <button onClick={subs} disabled={count === 0} > <ion-icon name="bag-remove" size="large"></ion-icon></button>
+            <button onClick={subs} disabled={count === initial} > <ion-icon name="bag-remove" size="large"></ion-icon></button>
             <span> {count}  </span>
             <button onClick={adding} disabled={count === stock}><ion-icon name="bag-add" size="large"></ion-icon></button>
-            <button className="buttons" onClick={() => {control({count})}}>Añadir a la compra</button>
+            <button className="buttons" disabled={count === 0} onClick={() => {control({count})}}>Añadir a la compra</button>
         </div>
     )
 }
