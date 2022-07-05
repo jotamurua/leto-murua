@@ -13,9 +13,17 @@ export const ItemDetail = ({ product}) => {
   const [price, setPrice] = useState(product.price);
   const [title, setTitle] = useState(product.title);
   const [id, setId] = useState (product.id);
-  const { addItem } = useContext (CartContext);
-  const quantityController = value =>  setItemQuantity(value)
-  addItem ({id, img, price, title, itemQuantity});
+  // const { addItem } = useContext (CartContext);
+  const { addTest } = useContext(CartContext)
+  const quantityController = 
+    value =>  addTest({id, price, title, img, value});
+   
+
+//   const submitItem = (e) => {
+//   e.preventDefault();
+//   addItem({id, img, price, title, itemQuantity});
+// }
+
   
   
     return (

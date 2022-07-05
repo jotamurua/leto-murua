@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-export const ItemCount = ({initial, stock, control}) => {
+export const ItemCount = ({initial, stock, control, addItem}) => {
 
 
     const [ count, setCount ] = useState(initial);
@@ -17,7 +17,7 @@ export const ItemCount = ({initial, stock, control}) => {
     }
     return (
         <div>
-
+            
             <button onClick={subs} disabled={count === initial} > <ion-icon name="bag-remove" size="large"></ion-icon></button>
             <span> {count}  </span>
             <button onClick={adding} disabled={count === stock}><ion-icon name="bag-add" size="large"></ion-icon></button>
