@@ -9,14 +9,10 @@ import { CartContext } from "../../CartContext/CartContext";
 export const ItemDetail = ({ product}) => {
 
   const [itemQuantity, setItemQuantity] = useState (0);
-  const [img, setImg] = useState(product.img);
-  const [price, setPrice] = useState(product.price);
-  const [title, setTitle] = useState(product.title);
-  const [id, setId] = useState (product.id);
-  // const { addItem } = useContext (CartContext);
-  const { addTest } = useContext(CartContext)
+   const { addItem } = useContext(CartContext)
   const quantityController = 
-    value =>  addTest({id, price, title, img, value});
+    quantity =>  addItem({...product}, quantity)
+
    
 
 //   const submitItem = (e) => {
