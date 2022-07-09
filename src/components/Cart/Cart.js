@@ -10,6 +10,8 @@ export const Cart = () => {
     }
     console.log()
     return (
-    cart.map (item => <><h1 key={item.id}>{item.title} y {item.quantity}</h1>
-    <button onClick={() => {restarCantidad(item)}}>restarcantidad</button></>))
+    cart.map (item => <>
+    <section key={item.id}><h1 key={item.id}>{item.title} y {item.quantity}</h1>
+    <button onClick={() => {restarCantidad(item)}}>restarcantidad</button>
+    </section></>))
 }
