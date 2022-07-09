@@ -11,14 +11,13 @@ export const ItemDetail = ({ product}) => {
   const [itemQuantity, setItemQuantity] = useState (0);
    const { addItem } = useContext(CartContext)
   const quantityController = 
-    quantity =>  addItem({...product}, quantity)
+    quantity => setItemQuantity(quantity)
+
+  const toCart = () =>
+    addItem({...product}, itemQuantity);
 
    
 
-//   const submitItem = (e) => {
-//   e.preventDefault();
-//   addItem({id, img, price, title, itemQuantity});
-// }
 
   
   
@@ -30,7 +29,7 @@ export const ItemDetail = ({ product}) => {
         <h1>{product.title}</h1>
         <p>${product.price}</p>
         <p>{product.description}</p>
-        {itemQuantity<1? <ItemCount initial={1} stock={product.stock} control={quantityController} /> : <Link to="/cart"><button className="buttons">Terminar Compra</button></Link>}
+        {itemQuantity<1? <ItemCount initial={1} stock={product.stock} control={quantityController} /> : <Link to="/cart"><button className="buttons" onClick={() => {toCart()}}>Terminar Compra</button></Link>}
         <p>Stock disponible: {product.stock}</p>
         </article>
      )

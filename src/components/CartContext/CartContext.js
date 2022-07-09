@@ -13,18 +13,23 @@ export const CartProvider = ({children}) => {
         setCart([...copyCart, {...item, quantity:quantity}])
     }else {
         
-       itemInCart(item).quantity = quantity; 
-       
+       itemInCart(item).quantity += quantity; 
+        setCart([...copyCart])
     }
 }
-    const removeItem = (itemId) => {
-    copyCart.splice(copyCart.indexOf(itemId));
-    
-};
+
+const removeItem = (item) => {if (item.quantity > 1){
+    item.quantity -= 1
+    setCart([...copyCart])
+}else {
+    setCart(copyCart.filter(product => product.id !== item.id))
+}
+}
+
     const clear = () => setCart([]);
 
 
-    return <CartContext.Provider value={{ addItem}}>
+    return <CartContext.Provider value={{ cart, addItem, removeItem, clear}}>
         {children}
     </CartContext.Provider>
 }
