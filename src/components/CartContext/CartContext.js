@@ -7,7 +7,7 @@ export const CartProvider = ({children}) => {
     const copyCart = [...cart]
     const itemInCart = (item) => cart.find(itemCart => itemCart.id === item.id) 
 
-    const isInCart =(item) => cart.some(product => product.id === item.id)
+    const isInCart =(item) => copyCart.some(product => product.id === item.id)
     
     const addItem = (item, quantity) => { if(!isInCart(item)){
         setCart([...copyCart, {...item, quantity:quantity}])
