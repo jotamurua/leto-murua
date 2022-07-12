@@ -2,26 +2,24 @@ import React from "react";
 import { useContext, useState } from "react";
 import { CartContext } from "../CartContext/CartContext";
 import { CartList } from "./CartList/CartList";
+import { EmptyCart } from "./EmptyCart/EmptyCart";
 
 
 export const CartContainer = () => {
-    const [total, setTotal ] = useState (0)
-    const {cart } = useContext(CartContext)
-    const sumaTotal =() => { cart.forEach(item => setTotal (total + (item.price * item.quantity)) )}
+    const {cart } = useContext(CartContext);
+    
 
-   
 
+    const res = cart.reduce((acc, item) => {
+        return acc = acc + (item.price*item.quantity);
+    }, 0)
+    
     return (
-        <section> 
+        cart.length?
+        <> 
             <CartList items = {cart} />
-            <button onClick={() => {sumaTotal()}}>aber</button>
-            <h6>El total es: ${total} </h6>
-        </section>)
+            <h6>El total es: ${res} </h6>
+        </> :
+        <EmptyCart/>
+        )
     }
-    
-    
-
-
-
-/* const restarCantidad = (item) => {
-        removeItem (item) */

@@ -1,10 +1,13 @@
 import React from "react";
 import "./NavBar.css"
 import { Link , NavLink} from "react-router-dom";
+import { useContext } from "react";
 import { CartWidget } from "./CartWidget/CartWidget";
+import { CartContext } from "../CartContext/CartContext";
 
 
 export const NavBar = () => {
+  const {cart } = useContext(CartContext)
     return <nav className="menu">
       <div className="boton">
         <button>
@@ -19,6 +22,6 @@ export const NavBar = () => {
         <li className="item"><NavLink to='/category/bean' className={({isActive}) => isActive? 'currentcategory' : ''}><button>CAFÉ</button></NavLink></li>
         <li className="item"><NavLink to='/category/elab' className={({isActive}) => isActive? 'currentcategory' : ''}><button>ELABORACIONES</button></NavLink></li>
       </ul>
-      <CartWidget />
+       <CartWidget  /> 
   </nav> 
 }

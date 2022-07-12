@@ -1,3 +1,7 @@
+
+
+
+
 import React from "react";
 import { createContext, useState} from 'react';
 
@@ -18,7 +22,7 @@ export const CartProvider = ({children}) => {
     }
 }
 
-const removeItem = (item) => {if (item.quantity > 1){
+const removeItem = (item) => {if (item.quantity >= 2){
     item.quantity -= 1
     setCart([...copyCart])
 }else {

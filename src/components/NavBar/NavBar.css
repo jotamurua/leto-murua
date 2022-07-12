@@ -2,6 +2,19 @@
   font-family: FUTRFW;
   src: url(../../../public/FUTRFW.TTF);
 }
+.widget {
+  display: flex;
+}
+.widget p {
+  border-radius: 50%;
+  border: 10px;
+  color: red;
+  font-size: larger;
+}
+.cart-widget {
+ color:red;
+ text-decoration: none;
+}
 
 .letra {
   font-family: FUTRFW;
