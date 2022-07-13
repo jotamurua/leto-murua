@@ -4,6 +4,10 @@ import products from "../utils/products";
 import { SpinnerCircular } from 'spinners-react';
 import { ItemDetail } from "./ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
+import { doc, getDoc, getFirestore} from "firebase/firestore"
+import app from '../../firebase/firebase';
+
+
 
 
 
@@ -17,28 +21,39 @@ export const ItemDetailContainer = () => {
     
 
     useEffect( () => {
-        const getItem = () => {
-        return new Promise((resolve, reject) => {
-          setTimeout (()=>{
-            if(products.length > 0){
-            resolve(products)} else {
-                reject ("ERROR!")
-            }
-          }, 2000);
+
+      const db = getFirestore();
+
+      const biciRef = doc(db, "productos", `${id}`);
+      getDoc(biciRef).then((snapshot) => {
+        if (snapshot.exists()) {
+          setItem({id: snapshot.id, ...snapshot.data()});
+          setSpinner (false);
+        }
+      });
+    }, [id]);
+      //   const getItem = () => {
+      //   return new Promise((resolve, reject) => {
+      //     setTimeout (()=>{
+      //       if(products.length > 0){
+      //       resolve(products)} else {
+      //           reject ("ERROR!")
+      //       }
+      //     }, 2000);
           
 
-        });
+      //   });
         
         
-      }
+      // }
       
-      getItem()
-        .then ((res) => setItem(res.find (product => product.id === `${id}`
-          )))
-        .catch ((err)=>{console.log(err)})
-        .finally(() => setSpinner(false))
+      // getItem()
+      //   .then ((res) => setItem(res.find (product => product.id === `${id}`
+      //     )))
+      //   .catch ((err)=>{console.log(err)})
+      //   .finally(() => setSpinner(false))
           
-        ;}, [id])
+      //   ;}, [id])
         
     return (
       
