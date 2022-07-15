@@ -24,8 +24,8 @@ export const ItemDetailContainer = () => {
 
       const db = getFirestore();
 
-      const biciRef = doc(db, "productos", `${id}`);
-      getDoc(biciRef).then((snapshot) => {
+      const cafeRef = doc(db, "productos", `${id}`);
+      getDoc(cafeRef).then((snapshot) => {
         if (snapshot.exists()) {
           setItem({id: snapshot.id, ...snapshot.data()});
           setSpinner (false);
