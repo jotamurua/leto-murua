@@ -1,5 +1,5 @@
 import React from "react";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { CartContext } from "../CartContext/CartContext";
 import { EmptyCart } from "./EmptyCart/EmptyCart";
 import { CartDetail } from "./CartDetail/CartDetail";
@@ -34,7 +34,7 @@ export const CartContainer = () => {
             )}
             </section>
             <h6>El total es: ${res} </h6>
-            <Formulario/>
+            <Formulario total= {res}/>
         </> :
         <EmptyCart/>
         )

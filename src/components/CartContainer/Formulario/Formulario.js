@@ -1,9 +1,32 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Formik, Form, Field} from "formik";
-export const Formulario = () => {
-  
-    const [enviado, setEnviado] = useState (false)
+import { addDoc, collection, getFirestore, updateDoc } from "firebase/firestore"
+import { CartContext } from "../../CartContext/CartContext";
+
+export const Formulario = ({total}) => {
+    const {cart } = useContext(CartContext);
+    const [orderId, setOrderId] = useState ();
+
+    const sendOrder = (datos) => {
+        const order = { 
+            buyer: datos,
+            items: cart,
+            total: total
+        };
+        const db = getFirestore();
+        const ordersCollection = collection(db, "pedidos");
+
+        addDoc(ordersCollection, order).then(({id}) => setOrderId(id)).catch(console.log("La orden no se ha podido procesar"));
+    }
+        
+        const updateStock = ( cart) => {
+            const db = getFirestore();
+            cart.map ((item) => {const productDoc = collection(db, "productos", `${item.id}`)
+            updateDoc(productDoc, {stock: item.stock-item.quantity})})
+            
+        }
+    
     return (
     <>
     <Formik
@@ -23,12 +46,18 @@ export const Formulario = () => {
             alertas.email = "Necesitamos que ingreses un correo"
         }
 
+        if(!datos.phone){
+            alertas.phone = "Necesitamos que ingreses un telefono"
+        }
+
         return alertas
     }}
-    onSubmit={(datos) => {
-        console.log(datos)
-        console.log("form enviado")
-        setEnviado(true);
+    onSubmit={(datos, {resetForm}) => {
+        
+        sendOrder(datos)
+        resetForm()
+        updateStock(cart)
+        
     }}> 
     {({ errors}) => ( 
     <Form  >
@@ -62,11 +91,11 @@ export const Formulario = () => {
             placeholder="Ingrese Aqui su telefono"
 
             />
-            {errors.email && <h1>{errors.email}</h1>}
+            {errors.phone && <h1>{errors.phone}</h1>}
         </div>
 
              <button type="submit">Enviar</button>
-             {enviado && <h1>Gracias Por tu compra! Tu id es</h1>}
+             {orderId && <h1>Gracias Por tu compra! Tu id es {orderId}</h1>}
     </Form>)}
    
     </Formik>
