@@ -4,6 +4,7 @@ import { SpinnerCircular } from 'spinners-react';
 import { ItemDetail } from "./ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
 import { doc, getDoc, getFirestore} from "firebase/firestore"
+import { app } from "../../firebase/firebase"
 
 
 
