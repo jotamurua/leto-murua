@@ -40,7 +40,7 @@ export const ItemListContainer = () => {
   
     return (
         <div className="grid">
-            <section>
+            <section className="itemlistcontainer">
                     {
                         spinner ? <SpinnerCircular /> : <ItemList products={items}/>
                     }

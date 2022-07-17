@@ -7,7 +7,7 @@ export const Items = ({ id, img, title, price, stock}) => {
 
 
   
-    return <article key={id}>
+    return <article key={id} className="listcontenedor">
 
         <img src={img} alt="Foto del café" />
         <h1>{title}</h1>

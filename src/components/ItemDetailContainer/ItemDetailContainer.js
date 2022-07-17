@@ -37,7 +37,7 @@ export const ItemDetailContainer = () => {
       
         <div className="grid">
           
-            <section>
+            <section className="contenedordetail">
                     {
                         spinner? <SpinnerCircular /> : <ItemDetail product = {item} /> 
                     }

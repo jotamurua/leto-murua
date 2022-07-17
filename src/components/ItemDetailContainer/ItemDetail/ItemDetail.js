@@ -3,6 +3,7 @@ import { ItemCount } from "../../ItemCount/ItemCount";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../CartContext/CartContext";
+import "./ItemDetail.css"
 
 
 
@@ -24,14 +25,18 @@ export const ItemDetail = ({ product}) => {
     return (
       
       
-      <article>
-        <img src={product.img} alt="Foto del café" />
-        <h1>{product.title}</h1>
-        <p>${product.price}</p>
-        <p>{product.description}</p>
-        {itemQuantity<1? <ItemCount initial={1} stock={product.stock} control={quantityController} /> : <Link to="/cart"><button className="buttons" onClick={() => {toCart()}}>Terminar Compra</button></Link>}
-        <p>Stock disponible: {product.stock}</p>
-        </article>
+      <article className="itemdetail">
+        <img src={product.img} alt="Foto del café" className="imgdetail" />
+        <h1 className="titulodetail">{product.title}</h1>
+        <p className="preciodetail">${product.price}</p>
+       <div className="switchbutton">
+          {itemQuantity<1? 
+            <ItemCount initial={1} stock={product.stock} control={quantityController} /> :
+            <Link to="/cart"><button className="buttons" onClick={() => {toCart()}}>Terminar Compra</button></Link>}
+          <p className="stockdetail">Stock disponible: {product.stock}</p>
+        </div>
+        <p className="descripciondetail">{product.description}</p>
+      </article>
      )
      
     }

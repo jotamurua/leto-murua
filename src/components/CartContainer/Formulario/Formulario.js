@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useContext } from "react";
 import { Formik, Form, Field} from "formik";
-import { addDoc, collection, getFirestore, updateDoc } from "firebase/firestore"
+import { doc, addDoc, collection, getFirestore, updateDoc, writeBatch } from "firebase/firestore"
 import { CartContext } from "../../CartContext/CartContext";
 
 export const Formulario = ({total}) => {
@@ -20,13 +20,27 @@ export const Formulario = ({total}) => {
         addDoc(ordersCollection, order).then(({id}) => setOrderId(id)).catch(console.log("La orden no se ha podido procesar"));
     }
         
-        const updateStock = ( cart) => {
+        const actualizarStock = (item) => {
             const db = getFirestore();
-            cart.map ((item) => {const productDoc = collection(db, "productos", `${item.id}`)
-            updateDoc(productDoc, {stock: item.stock-item.quantity})})
+            const stockDoc =  doc(db, "productos", `${item.id}`);
+            updateDoc(stockDoc, {stock: 777})
+        }
+        const EnviarPedido = (datos) => {
+            const order = { 
+                buyer: datos,
+                items: cart,
+                total: total
+            };
+            const db= getFirestore();
+            const batch = writeBatch(db);
+            const ordersCollection = collection(db, "pedidos");
+            const productsCollection = collection(db, "productos", "HM5dRP9UT74sTcpF5AHx");
+
+            batch.set(ordersCollection, {order});
+            batch.update (productsCollection, {stock: 888});
+            batch.commit ();
             
         }
-    
     return (
     <>
     <Formik
@@ -55,8 +69,10 @@ export const Formulario = ({total}) => {
     onSubmit={(datos, {resetForm}) => {
         
         sendOrder(datos)
+        cart.map (item => actualizarStock(item))
+
         resetForm()
-        updateStock(cart)
+        
         
     }}> 
     {({ errors}) => ( 

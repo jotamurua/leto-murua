@@ -11,10 +11,10 @@ export const NavBar = () => {
     return <nav className="menu">
       <div className="boton">
         <button>
-          <ion-icon name="water"></ion-icon>
+        <NavLink to='/category/elab' className={({isActive}) => isActive? 'currentcategory' : ''}> <ion-icon name="water"></ion-icon></NavLink>
         </button>
         <button>
-          <ion-icon name="cafe"></ion-icon>
+        <NavLink to='/category/bean' className={({isActive}) => isActive? 'currentcategory' : ''}><ion-icon name="cafe"></ion-icon></NavLink>
         </button>
       </div>
       <Link to="/"><button className="letra">LETO BREW LAB</button></Link>

@@ -1,0 +1,40 @@
+.itemdetail {
+    display: grid;
+    border: 1px #DB3939 solid;
+    margin: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 0.2fr 0.1fr 0.5fr 1fr;
+    grid-column-gap: 14px;
+    grid-row-gap: 0px;
+    justify-items: center;
+    align-items: center;
+    width: 90%;
+    padding: 10px
+    
+}
+    .imgdetail { 
+        grid-area: 1 / 1 / 5 / 4;
+        width: 50%;
+   }
+    .titulodetail { 
+        grid-area: 1 / 4 / 2 / 5;
+        border-bottom: 1px solid black; 
+        
+    }
+    .preciodetail { 
+        grid-area: 2 / 4 / 3 / 5; 
+        font-weight: bolder;
+    }
+    .switchbutton { 
+        grid-area: 3 / 4 / 4 / 5;
+        display:grid;
+        grid-template-rows: auto auto auto;
+        justify-items: center;
+     }
+     .switchbutton p {
+        
+     }
+    .descripciondetail { grid-area: 4 / 4 / 5 / 5;  }
+
+
+

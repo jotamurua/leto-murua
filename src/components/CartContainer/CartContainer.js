@@ -4,6 +4,7 @@ import { CartContext } from "../CartContext/CartContext";
 import { EmptyCart } from "./EmptyCart/EmptyCart";
 import { CartDetail } from "./CartDetail/CartDetail";
 import {  Formulario } from "./Formulario/Formulario";
+import "./CartContainer.css"
 
 
 export const CartContainer = () => {
@@ -27,9 +28,9 @@ export const CartContainer = () => {
             <section>
             {cart.map 
             (item => 
-            <article key={item.id}>
+            <article key={item.id} className="articulocart">
                 <CartDetail key= { item.id} {...item}/>
-            <button onClick={() => {restarCantidad(item)}}><ion-icon name="bag-remove" size="large"></ion-icon></button>
+            <button onClick={() => {restarCantidad(item)}}><ion-icon name="bag-remove" size="large" className="botonrest"></ion-icon></button>
             </article>
             )}
             </section>
