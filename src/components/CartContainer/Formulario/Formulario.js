@@ -7,12 +7,17 @@ import { CartContext } from "../../CartContext/CartContext";
 export const Formulario = ({total}) => {
     const {cart } = useContext(CartContext);
     const [orderId, setOrderId] = useState ();
+    let date = new Date();
+    let output = String(date.getDate()).padStart(2, '0') + '/' + String(date.getMonth() + 1).padStart(2, '0') + '/' + date.getFullYear();
+    
 
     const sendOrder = (datos) => {
         const order = { 
             buyer: datos,
             items: cart,
+            date: output,
             total: total
+            
         };
         const db = getFirestore();
         const ordersCollection = collection(db, "pedidos");
@@ -23,24 +28,26 @@ export const Formulario = ({total}) => {
         const actualizarStock = (item) => {
             const db = getFirestore();
             const stockDoc =  doc(db, "productos", `${item.id}`);
-            updateDoc(stockDoc, {stock: 777})
+            updateDoc(stockDoc, {stock: item.stock - item.quantity})
         }
-        const EnviarPedido = (datos) => {
-            const order = { 
-                buyer: datos,
-                items: cart,
-                total: total
-            };
-            const db= getFirestore();
-            const batch = writeBatch(db);
-            const ordersCollection = collection(db, "pedidos");
-            const productsCollection = collection(db, "productos", "HM5dRP9UT74sTcpF5AHx");
+        
 
-            batch.set(ordersCollection, {order});
-            batch.update (productsCollection, {stock: 888});
-            batch.commit ();
+        // const EnviarPedido = (datos) => {
+        //     const order = { 
+        //         buyer: datos,
+        //         items: cart,
+        //         total: total
+        //     };
+        //     const db= getFirestore();
+        //     const batch = writeBatch(db);
+        //     const ordersCollection = collection(db, "pedidos");
+        //     const productCollection = cart.map (item => doc(db, "productos", `${item.id}`))
+
+        //     batch.set(ordersCollection, {order});
+        //     batch.update(productCollection, {stock: 456})
+        //     batch.commit ();
             
-        }
+        // }
     return (
     <>
     <Formik
@@ -67,9 +74,10 @@ export const Formulario = ({total}) => {
         return alertas
     }}
     onSubmit={(datos, {resetForm}) => {
-        
+
         sendOrder(datos)
         cart.map (item => actualizarStock(item))
+        // EnviarPedido(datos)
 
         resetForm()
         
