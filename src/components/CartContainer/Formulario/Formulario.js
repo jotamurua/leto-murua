@@ -1,8 +1,9 @@
 import React from "react";
 import { useState, useContext } from "react";
 import { Formik, Form, Field} from "formik";
-import { doc, addDoc, collection, getFirestore, updateDoc, writeBatch } from "firebase/firestore"
+import { doc, addDoc, collection, getFirestore, updateDoc } from "firebase/firestore"
 import { CartContext } from "../../CartContext/CartContext";
+import { app } from "../../../firebase/firebase.js"
 
 export const Formulario = ({total}) => {
     const {cart } = useContext(CartContext);
@@ -19,35 +20,18 @@ export const Formulario = ({total}) => {
             total: total
             
         };
-        const db = getFirestore();
+        const db = getFirestore(app);
         const ordersCollection = collection(db, "pedidos");
 
         addDoc(ordersCollection, order).then(({id}) => setOrderId(id)).catch((err) => setOrderId(false)).finally({clear});
     }
         
         const actualizarStock = (item) => {
-            const db = getFirestore();
+            const db = getFirestore(app);
             const stockDoc =  doc(db, "productos", `${item.id}`);
             updateDoc(stockDoc, {stock: item.stock - item.quantity})
         }
-        
-
-        // const EnviarPedido = (datos) => {
-        //     const order = { 
-        //         buyer: datos,
-        //         items: cart,
-        //         total: total
-        //     };
-        //     const db= getFirestore();
-        //     const batch = writeBatch(db);
-        //     const ordersCollection = collection(db, "pedidos");
-        //     const productCollection = cart.map (item => doc(db, "productos", `${item.id}`))
-
-        //     batch.set(ordersCollection, {order});
-        //     batch.update(productCollection, {stock: 456})
-        //     batch.commit ();
-            
-        // }
+              
     return (
     <>
     <Formik
@@ -74,14 +58,9 @@ export const Formulario = ({total}) => {
         return alertas
     }}
     onSubmit={(datos, {resetForm}) => {
-
         sendOrder(datos)
         cart.map (item => actualizarStock(item))
-        // EnviarPedido(datos)
-
-        resetForm()
-        
-        
+        resetForm()   
     }}> 
     {({ errors}) => ( 
     <Form  >
