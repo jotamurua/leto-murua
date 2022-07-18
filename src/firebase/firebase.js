@@ -1,9 +1,6 @@
-// Import the functions you need from the SDKs you need
+
 import { initializeApp } from "firebase/app";
-import { getFirestore } from 'firebase/firestore/lite';
 
-
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyD0iDwAzG56oa-4lMaL2ajzCpv555X3zmU",
   authDomain: "murua-leto.firebaseapp.com",
@@ -13,8 +10,4 @@ const firebaseConfig = {
   appId: "1:449700084008:web:d22af06a7040096f91f81d"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-export default db
+ export const app = initializeApp(firebaseConfig);

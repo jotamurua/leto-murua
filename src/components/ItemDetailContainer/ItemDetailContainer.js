@@ -4,7 +4,7 @@ import { SpinnerCircular } from 'spinners-react';
 import { ItemDetail } from "./ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
 import { doc, getDoc, getFirestore} from "firebase/firestore"
-import { app } from "../../firebase/firebase"
+import { app } from "../../firebase/firebase.js"
 
 
 
@@ -22,7 +22,7 @@ export const ItemDetailContainer = () => {
 
     useEffect( () => {
 
-      const db = getFirestore();
+      const db = getFirestore(app)
 
       const cafeRef = doc(db, "productos", `${id}`);
       getDoc(cafeRef).then((snapshot) => {

@@ -9,7 +9,7 @@ export const Formulario = ({total}) => {
     const [orderId, setOrderId] = useState ();
     let date = new Date();
     let output = String(date.getDate()).padStart(2, '0') + '/' + String(date.getMonth() + 1).padStart(2, '0') + '/' + date.getFullYear();
-    
+    const {clear} = useContext(CartContext)
 
     const sendOrder = (datos) => {
         const order = { 
@@ -22,7 +22,7 @@ export const Formulario = ({total}) => {
         const db = getFirestore();
         const ordersCollection = collection(db, "pedidos");
 
-        addDoc(ordersCollection, order).then(({id}) => setOrderId(id)).catch(console.log("La orden no se ha podido procesar"));
+        addDoc(ordersCollection, order).then(({id}) => setOrderId(id)).catch((err) => setOrderId(false)).finally({clear});
     }
         
         const actualizarStock = (item) => {

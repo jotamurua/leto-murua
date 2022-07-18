@@ -5,7 +5,7 @@ import { ItemList } from "./ItemList/ItemList";
 import { SpinnerCircular } from 'spinners-react';
 import { useParams } from "react-router-dom";
 import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
-import { app } from "../../firebase/firebase"
+import  { app } from "../../firebase/firebase"
 
 
 
@@ -19,8 +19,8 @@ export const ItemListContainer = () => {
 
     
     useEffect( () => {
-      const db = getFirestore();
       
+      const db= getFirestore(app)
 
       const q = query(
         collection(db, "productos"),
