@@ -1,9 +1,7 @@
-import React from "react";
 import "./CartWidget.css"
-import { useContext, useState } from "react";
+import { useContext} from "react";
 import { CartContext } from "../../CartContext/CartContext";
-import { Link , NavLink} from "react-router-dom";
-import { Reddit } from "react-bootstrap-icons";
+import {  NavLink} from "react-router-dom";
 
 
 export const CartWidget = () => {
