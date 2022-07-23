@@ -1,13 +1,14 @@
-import React from "react";
-import {  useContext } from "react";
+import {  useContext, useState } from "react";
 import { Formik, Form, Field} from "formik";
 import { doc, addDoc, collection, getFirestore, updateDoc } from "firebase/firestore"
 import { CartContext } from "../../CartContext/CartContext";
 import { app } from "../../../firebase/firebase.js";
 import { Link } from "react-router-dom";
+import { SpinnerCircular } from 'spinners-react';
 
 export const Formulario = ({total}) => {
-    const {cart, setId, clear } = useContext(CartContext);
+    const {cart, setId, clear, orderId } = useContext(CartContext);
+    const [compraFinalizada, setCompraFinalizada] = useState(false)
     let date = new Date();
     let output = String(date.getDate()).padStart(2, '0') + '/' + String(date.getMonth() + 1).padStart(2, '0') + '/' + date.getFullYear();
     
@@ -34,6 +35,7 @@ export const Formulario = ({total}) => {
               
     return (
     <>
+    {!compraFinalizada &&
     <Formik
     initialValues={{
         name: '',
@@ -61,13 +63,13 @@ export const Formulario = ({total}) => {
         sendOrder(datos)
         cart.map (item => actualizarStock(item))
         resetForm()
-        setTimeout(() => {clear()
-            
-        }, 1000); 
+        setCompraFinalizada(true)
+        
     }}> 
     {({ errors}) => ( 
+    
     <Form  >
-        <div>
+         <div>
              <label htmlFor="nombre">Nombre y Apellido</label>
               <Field
             type="text" 
@@ -99,12 +101,15 @@ export const Formulario = ({total}) => {
             />
             {errors.phone && <h1>{errors.phone}</h1>}
         </div>
-
-             <Link to='/finish'><button type="submit">Finalizar Compra</button></Link>
+         <button type="submit">Finalizar Compra</button>
+             
+             
              
     </Form>)}
    
-    </Formik>
+    </Formik>}
+    {!orderId && compraFinalizada && <SpinnerCircular/>} 
+    {orderId  && <Link to='/finish' onClick={() => {clear()}}>Continuar</Link>  }
     </>
     )
 }
