@@ -25,7 +25,7 @@ export const CartContainer = () => {
     return (
         cart.length?
         <> 
-            <section>
+            <section className="cart-section">
             {cart.map 
             (item => 
             <article key={item.id} className="articulocart">
