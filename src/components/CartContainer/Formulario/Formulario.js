@@ -1,16 +1,16 @@
 import React from "react";
-import { useState, useContext } from "react";
+import {  useContext } from "react";
 import { Formik, Form, Field} from "formik";
 import { doc, addDoc, collection, getFirestore, updateDoc } from "firebase/firestore"
 import { CartContext } from "../../CartContext/CartContext";
-import { app } from "../../../firebase/firebase.js"
+import { app } from "../../../firebase/firebase.js";
+import { Link } from "react-router-dom";
 
 export const Formulario = ({total}) => {
-    const {cart } = useContext(CartContext);
-    const [orderId, setOrderId] = useState ();
+    const {cart, setId, clear } = useContext(CartContext);
     let date = new Date();
     let output = String(date.getDate()).padStart(2, '0') + '/' + String(date.getMonth() + 1).padStart(2, '0') + '/' + date.getFullYear();
-    const {clear} = useContext(CartContext)
+    
 
     const sendOrder = (datos) => {
         const order = { 
@@ -23,7 +23,7 @@ export const Formulario = ({total}) => {
         const db = getFirestore(app);
         const ordersCollection = collection(db, "pedidos");
 
-        addDoc(ordersCollection, order).then(({id}) => setOrderId(id)).catch((err) => setOrderId(false)).finally({clear});
+        addDoc(ordersCollection, order).then(({id}) => setId(id)).catch((err) => setId(false)).finally({clear});
     }
         
         const actualizarStock = (item) => {
@@ -60,7 +60,10 @@ export const Formulario = ({total}) => {
     onSubmit={(datos, {resetForm}) => {
         sendOrder(datos)
         cart.map (item => actualizarStock(item))
-        resetForm()   
+        resetForm()
+        setTimeout(() => {clear()
+            
+        }, 1000); 
     }}> 
     {({ errors}) => ( 
     <Form  >
@@ -97,8 +100,8 @@ export const Formulario = ({total}) => {
             {errors.phone && <h1>{errors.phone}</h1>}
         </div>
 
-             <button type="submit">Enviar</button>
-             {orderId && <h1>Gracias Por tu compra! Tu id es {orderId}</h1>}
+             <Link to='/finish'><button type="submit">Finalizar Compra</button></Link>
+             
     </Form>)}
    
     </Formik>

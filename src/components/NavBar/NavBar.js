@@ -1,13 +1,10 @@
 import React from "react";
 import "./NavBar.css"
 import { Link , NavLink} from "react-router-dom";
-import { useContext } from "react";
 import { CartWidget } from "./CartWidget/CartWidget";
-import { CartContext } from "../CartContext/CartContext";
 
 
 export const NavBar = () => {
-  const {cart } = useContext(CartContext)
     return <nav className="menu">
       <div className="boton">
         <button>
