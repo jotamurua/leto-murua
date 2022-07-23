@@ -1,18 +1,12 @@
-import {  useContext, useState, useEffect } from "react";
+import {  useContext } from "react";
 import { CartContext } from "../../CartContext/CartContext";
 import { Link } from "react-router-dom";
 
 
 export const CartConfirm = () => {
-    const {orderId, clear, setId} = useContext(CartContext);
-   const [idOrder, setIdOrder] = useState();
-   const clearCart = () => {
-    clear()
-};
-   useEffect (() => {
-    
-    setIdOrder(orderId)
-   },[orderId])
+    const {orderId, setId} = useContext(CartContext);
+   
+  
  return (
     <section>
         <article>
