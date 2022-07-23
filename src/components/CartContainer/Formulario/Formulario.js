@@ -62,7 +62,6 @@ export const Formulario = ({total}) => {
     onSubmit={(datos, {resetForm}) => {
         sendOrder(datos)
         cart.map (item => actualizarStock(item))
-        resetForm()
         setCompraFinalizada(true)
         
     }}> 

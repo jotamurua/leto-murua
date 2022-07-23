@@ -8,7 +8,7 @@ export const CartProvider = ({children}) => {
     const setId = (id) => {
         setOrderId(id)
     }
-    console.log (orderId)
+    
     const copyCart = [...cart]
     const itemInCart = (item) => cart.find(itemCart => itemCart.id === item.id) 
 
