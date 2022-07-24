@@ -14,6 +14,11 @@
   border: 0px;
   background: none;
   font-style: bold;
+  text-decoration: none;
+  color:black;
+}
+a:hover{ 
+  color:black;
 }
 nav {
   font-family: FUTRFW;
