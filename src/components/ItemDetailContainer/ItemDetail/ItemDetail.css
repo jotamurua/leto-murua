@@ -1,6 +1,5 @@
 .itemdetail {
     display: grid;
-    border: 1px #DB3939 solid;
     margin: 10px;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 0.2fr 0.1fr 0.5fr 1fr;
@@ -15,6 +14,9 @@
     .imgdetail { 
         grid-area: 1 / 1 / 5 / 4;
         width: 50%;
+        max-width: 300px;
+    box-shadow: 10px 10px 5px 0px rgb(0 0 0 / 83%);
+    border-radius: 5px;
    }
     .titulodetail { 
         grid-area: 1 / 4 / 2 / 5;
@@ -31,9 +33,7 @@
         grid-template-rows: auto auto auto;
         justify-items: center;
      }
-     .switchbutton p {
-        
-     }
+     
     .descripciondetail { grid-area: 4 / 4 / 5 / 5;  }
 
 
