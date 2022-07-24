@@ -29,3 +29,6 @@ form div {
 form button {
     background-color: none;
 }
+form label {
+    margin: 10px;
+}
