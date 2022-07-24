@@ -37,4 +37,9 @@
     .descripciondetail { grid-area: 4 / 4 / 5 / 5;  }
 
 
-
+    @media screen and (max-width:960px) {
+        .itemdetail {
+            display: flex;
+            flex-direction: column;
+        }
+    }
