@@ -68,8 +68,7 @@ export const Formulario = ({total}) => {
     {({ errors}) => ( 
     
     <Form  >
-         <div>
-             <label htmlFor="nombre">Nombre y Apellido</label>
+         
               <Field
             type="text" 
             id="name" 
@@ -77,9 +76,7 @@ export const Formulario = ({total}) => {
             placeholder="Ingrese Aqui su nombre"
             />
             {errors.name && <h1>{errors.name}</h1>}
-        </div>
-        <div>
-             <label htmlFor="correo">Correo</label>
+        
         <Field
             type="email" 
             id="email" 
@@ -88,9 +85,7 @@ export const Formulario = ({total}) => {
 
             />
             {errors.email && <h1>{errors.email}</h1>}
-        </div>
-        <div>
-             <label htmlFor="telefono">Telefono</label>
+        
         <Field
             type="tel" 
             id="phone" 
@@ -99,7 +94,7 @@ export const Formulario = ({total}) => {
 
             />
             {errors.phone && <h1>{errors.phone}</h1>}
-        </div>
+        
          <button type="submit">Finalizar Compra</button>
              
              

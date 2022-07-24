@@ -28,7 +28,22 @@ form div {
 
 form button {
     background-color: none;
+    margin: 10px;
 }
 form label {
     margin: 10px;
 }
+form input {
+    border: none;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: #e8e8e8;
+    transition: 0.3s;
+    margin: 10px;
+   }
+   
+   form input:focus {
+    outline-color: #e8e8e8;
+    background: #e8e8e8;
+    transition: 0.3s;
+   }
