@@ -7,6 +7,7 @@ En esta web utilicé, entre otras, las siguientes funciones:
 - Automaticamente al realizarse una compra se actualiza el stock de los productos. Si un producto es quitado o agregado de la lista esto se impacta automaticamente en la web.
 - Cuenta con un diseño responsive en cualquier dispositivo.
 - Selección de categorias de productos si desea ver café en grano, elaboraciones, o el detalle ampliado de un simple item utilizando querys de la base de datos en lugar de metodos de javascript para optimizar el funcionamiento. (para que la base de datos pueda interpretar la petición se utilizó el hook de react "useParams").
+- Componente personalizado para errores de URL incorrecta.
 - Spinners que se activan y se desactivan automaticamente mientras la web carga para indicarle al usuario que debe esperar.
 - Carrito que almacena todas las compras mediante el hook de React "useContext", este carrito solo aparece cuando un item ha sido agregado al mismo.
 - Contadores que nunca exceden el stock del producto.
