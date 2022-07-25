@@ -1,15 +1,14 @@
-.articulo-confirm{
+.container-error{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
-.imagen-confirm{
+.imagen-error img{
     max-width: 250px;
 }
-.contenido-confirm{
+.texto-error {
     display: flex;
     flex-direction: column;
     align-items: center;
-    align-content: center;
+    justify-content: center;
 }

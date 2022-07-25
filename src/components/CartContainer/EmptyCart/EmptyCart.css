@@ -10,5 +10,5 @@
     align-items: center;
 }
 .imagenempty img{
-    width: 100px;
+    max-width: 250px;
 }
