@@ -32,7 +32,7 @@ export const ItemDetail = ({ product}) => {
        <div className="switchbutton">
           {itemQuantity<1? 
             <ItemCount initial={1} stock={product.stock} control={quantityController} /> :
-            <Link to="/cart"><button className="buttons" onClick={() => {toCart()}}>Terminar Compra</button></Link>}
+            <Link to="/cart"><button className="buttons" onClick={() => {toCart()}}>Confirmar e ir al Carrito</button></Link>}
           <p className="stockdetail">Stock disponible: {product.stock}</p>
         </div>
         <p className="descripciondetail">{product.description}</p>

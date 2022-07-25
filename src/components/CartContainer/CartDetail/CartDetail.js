@@ -1,8 +1,9 @@
 import React from "react";
 
 export const CartDetail = ({...item}) => {
+    
 
-    return (<>
+    return (< >
 
         
          <img src={item.img} alt="Foto del café"  /> 
@@ -16,7 +17,6 @@ export const CartDetail = ({...item}) => {
         
             <p>${item.price}</p>   
             <p>Sub-total: $ {item.quantity * item.price }</p>
-        
         </>
     )
 }

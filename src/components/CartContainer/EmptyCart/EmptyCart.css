@@ -1,0 +1,14 @@
+.emptycart{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: flex-end;
+}
+.mensajesempty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.imagenempty img{
+    width: 100px;
+}

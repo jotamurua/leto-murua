@@ -33,8 +33,12 @@ const removeItem = (item) => {if (item.quantity >= 2){
 
     const clear = () => setCart([]);
 
+    const res = cart.reduce((acc, item) => {
+        return acc = acc + (item.price*item.quantity);
+    }, 0)
 
-    return <CartContext.Provider value={{ cart, orderId, addItem, removeItem, clear, setId  }}>
+
+    return <CartContext.Provider value={{ cart, orderId, addItem, removeItem, clear, setId, res  }}>
         {children}
     </CartContext.Provider>
 }

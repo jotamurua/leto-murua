@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { SpinnerCircular } from 'spinners-react';
 
 export const Formulario = ({total}) => {
-    const {cart, setId, clear, orderId } = useContext(CartContext);
+    const {cart, setId, clear, orderId, res } = useContext(CartContext);
     const [compraFinalizada, setCompraFinalizada] = useState(false)
     let date = new Date();
     let output = String(date.getDate()).padStart(2, '0') + '/' + String(date.getMonth() + 1).padStart(2, '0') + '/' + date.getFullYear();
@@ -18,7 +18,7 @@ export const Formulario = ({total}) => {
             buyer: datos,
             items: cart,
             date: output,
-            total: total
+            total: res
             
         };
         const db = getFirestore(app);

@@ -8,13 +8,7 @@ import "./CartContainer.css"
 
 
 export const CartContainer = () => {
-    const {cart } = useContext(CartContext);
-    
-
-
-    const res = cart.reduce((acc, item) => {
-        return acc = acc + (item.price*item.quantity);
-    }, 0)
+    const {cart, res } = useContext(CartContext);
 
     const {removeItem} = useContext (CartContext)
     const restarCantidad = (item) => {
@@ -34,8 +28,8 @@ export const CartContainer = () => {
             </article>
             )}
             </section>
-            <h6>El total es: ${res} </h6>
-            <Formulario total= {res}/>
+            <h6>El total de su compra es: ${res} </h6>
+            <Formulario />
         </> :
         <EmptyCart/>
         )
