@@ -1,56 +1,55 @@
-.cart-section{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-    gap: 1em;
+.cart-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 1em;
 }
 .cart-section article {
-    border: 1px #DB3939 solid;
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 5px;
-    font-family: 'Inter', sans-serif;
+  border: 1px #db3939 solid;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  font-family: "Inter", sans-serif;
 }
 .cart-section article img {
-    width: 100%;
+  width: 100%;
 }
-.total-forms{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.total-forms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.totalcompra{
-    margin-bottom:10px;
+.totalcompra {
+  margin-bottom: 10px;
 }
 form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-   
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 form div {
-    padding: 10px;
+  padding: 10px;
 }
 
 form button {
-    background-color: none;
-    margin: 10px;
+  background-color: none;
+  margin: 10px;
 }
 form label {
-    margin: 10px;
+  margin: 10px;
 }
 form input {
-    border: none;
-    padding: 1rem;
-    border-radius: 1rem;
-    background: #e8e8e8;
-    transition: 0.3s;
-    margin: 10px;
-   }
-   
-   form input:focus {
-    outline-color: #e8e8e8;
-    background: #e8e8e8;
-    transition: 0.3s;
-   }
+  border: none;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: #e8e8e8;
+  transition: 0.3s;
+  margin: 10px;
+}
+
+form input:focus {
+  outline-color: #e8e8e8;
+  background: #e8e8e8;
+  transition: 0.3s;
+}

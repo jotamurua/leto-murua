@@ -1,4 +1,3 @@
-
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
@@ -7,9 +6,7 @@ const firebaseConfig = {
   projectId: "murua-leto",
   storageBucket: "murua-leto.appspot.com",
   messagingSenderId: "449700084008",
-  appId: "1:449700084008:web:d22af06a7040096f91f81d"
+  appId: "1:449700084008:web:d22af06a7040096f91f81d",
 };
 
-
- export const app = initializeApp(firebaseConfig);
-
+export const app = initializeApp(firebaseConfig);

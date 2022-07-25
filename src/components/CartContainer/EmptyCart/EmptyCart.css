@@ -1,14 +1,14 @@
-.emptycart{
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-    align-items: flex-end;
+.emptycart {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: flex-end;
 }
 .mensajesempty {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.imagenempty img{
-    max-width: 250px;
+.imagenempty img {
+  max-width: 250px;
 }

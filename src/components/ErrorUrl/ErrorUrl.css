@@ -1,14 +1,14 @@
-.container-error{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.container-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.imagen-error img{
-    max-width: 250px;
+.imagen-error img {
+  max-width: 250px;
 }
 .texto-error {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
