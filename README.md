@@ -18,8 +18,11 @@ Acá te dejo el link con el deploy de la web:
 Si queres compilar por vos misma/o este proyecto podes hacerlo siguiendo estos pasos:
  -clonar el repositorio desde github:
  podes hacerlo manualmente o desde simbolo de sistema una vez dentro del directorio deseado con el siguiente codigo
+
  `git clone https://github.com/jotamurua/leto-murua.git`
+
 -ejecutar los siguientes comandos desde el directorio de simbolo de sistema o la terminal del editor de codigo que estes usando:
+
 `npm i`
 
 `npm start`
@@ -29,5 +32,7 @@ Un saludo!
 Joel
 
 *joel.l.murua@gmail.com*
+
 [Linkedin](https://www.linkedin.com/in/joelmurua/)
+
 [mi portfolio](https://portfoliomurua.netlify.app/)
