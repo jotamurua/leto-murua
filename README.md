@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# Bienvenida/o a mi tienda ficticia LETO BREW LAB
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Soy Joel Murúa, estudiante de programación Fullstack en Argentina Programa con orientación de Front End en Angular y también estudié React.js en Coderhouse.
 
-## Available Scripts
+En esta web utilicé, entre otras, las siguientes funciones: 
+- Conexión a una base de datos en Firebase que almacena todos los productos disponibles con todos sus datos (descripción, precio, stock disponible, etc.), así como también todos los pedidos que se realicen en la web en tiempo real con datos del cliente, items seleccionados, total y fecha de la compra.
+- Automaticamente al realizarse una compra se actualiza el stock de los productos. Si un producto es quitado o agregado de la lista esto se impacta automaticamente en la web.
+- Cuenta con un diseño responsive en cualquier dispositivo.
+- Selección de categorias de productos si desea ver café en grano, elaboraciones, o el detalle ampliado de un simple item utilizando querys de la base de datos en lugar de metodos de javascript para optimizar el funcionamiento. (para que la base de datos pueda interpretar la petición se utilizó el hook de react "useParams").
+- Spinners que se activan y se desactivan automaticamente mientras la web carga para indicarle al usuario que debe esperar.
+- Carrito que almacena todas las compras mediante el hook de React "useContext", este carrito solo aparece cuando un item ha sido agregado al mismo.
+- Contadores que nunca exceden el stock del producto.
 
-In the project directory, you can run:
+Acá te dejo el link con el deploy de la web:
+[LETO BREW LAB](https://letobrewlab.netlify.app/)
 
-### `npm start`
+Si queres compilar por vos misma/o este proyecto podes hacerlo siguiendo estos pasos:
+ -clonar el repositorio desde github:
+ podes hacerlo manualmente o desde simbolo de sistema una vez dentro del directorio deseado con el siguiente codigo
+ `git clone https://github.com/jotamurua/leto-murua.git`
+-ejecutar los siguientes comandos desde el directorio de simbolo de sistema o la terminal del editor de codigo que estes usando:
+`npm i`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+`npm start`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Muchas gracias por leerme, aquí debajo te dejo mis contactos.
+Un saludo!
+Joel
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+*joel.l.murua@gmail.com*
+[Linkedin](https://www.linkedin.com/in/joelmurua/)
+[mi portfolio](https://portfoliomurua.netlify.app/)
