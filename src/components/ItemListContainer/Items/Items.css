@@ -6,6 +6,7 @@
     align-items: center;
     padding: 5px;
     font-family: 'Inter', sans-serif;
+    justify-content: space-between;
 }
 article img {
     width: 100%;
