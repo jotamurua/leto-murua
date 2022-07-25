@@ -6,7 +6,7 @@ import { app } from "../../../firebase/firebase.js";
 import { Link } from "react-router-dom";
 import { SpinnerCircular } from 'spinners-react';
 
-export const Formulario = ({total}) => {
+export const Formulario = () => {
     const {cart, setId, clear, orderId, res } = useContext(CartContext);
     const [compraFinalizada, setCompraFinalizada] = useState(false)
     let date = new Date();
@@ -103,7 +103,7 @@ export const Formulario = ({total}) => {
    
     </Formik>}
     {!orderId && compraFinalizada && <SpinnerCircular/>} 
-    {orderId  && <Link to='/finish' onClick={() => {clear()}}>Continuar</Link>  }
+    {orderId  && <Link to='/finish' className="link-component" onClick={() => {clear()}}>¡Finaliza tu compra y obtén tu código de seguimiento!</Link>  }
     </>
     )
 }

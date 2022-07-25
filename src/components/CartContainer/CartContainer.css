@@ -15,7 +15,14 @@
 .cart-section article img {
     width: 100%;
 }
-
+.total-forms{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.totalcompra{
+    margin-bottom:10px;
+}
 form {
     display: flex;
     flex-direction: column;

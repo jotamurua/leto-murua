@@ -28,8 +28,11 @@ export const CartContainer = () => {
             </article>
             )}
             </section>
-            <h6>El total de su compra es: ${res} </h6>
+            <section className="total-forms">
+            <h6 className="totalcompra">El total de su compra es: ${res} </h6>
             <Formulario />
+            </section>
+            
         </> :
         <EmptyCart/>
         )
